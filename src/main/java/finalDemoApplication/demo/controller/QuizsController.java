@@ -13,7 +13,6 @@ import finalDemoApplication.demo.entity.Quizs;
 import finalDemoApplication.demo.service.QuizService;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/quiz")
 public class QuizsController {
 	@Autowired

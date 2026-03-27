@@ -21,7 +21,6 @@ import finalDemoApplication.demo.service.CustomerService;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin("*")
 public class CustomerController {
 	@Autowired
 	private CustomerService service;
