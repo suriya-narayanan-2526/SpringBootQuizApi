@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import finalDemoApplication.demo.dto.QuizsResponseDto;
 import finalDemoApplication.demo.entity.Questions;
 import finalDemoApplication.demo.entity.Quizs;
+import finalDemoApplication.demo.repository.QuestionRepository;
 import finalDemoApplication.demo.repository.QuizsRepository;
 
 @Service
@@ -17,6 +18,8 @@ public class QuizService {
 	private QuizsRepository quizRepo;
 	@Autowired
 	private ModelMapper model;
+	@Autowired
+	private QuestionRepository quesRepo;
 
 	public List<Quizs> getAllQuiz() {
 		return quizRepo.findAll();
@@ -29,5 +32,9 @@ public class QuizService {
 		}
 		Quizs data =quizRepo.save(quiz);
 		return model.map(data, QuizsResponseDto.class);
+	}
+	public List<Questions> getAllQuizById(Long id)
+	{
+		return quesRepo.findByQuizId(id);
 	}
 }

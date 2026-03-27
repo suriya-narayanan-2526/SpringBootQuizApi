@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import finalDemoApplication.demo.dto.QuizsResponseDto;
+import finalDemoApplication.demo.entity.Questions;
 import finalDemoApplication.demo.entity.Quizs;
 import finalDemoApplication.demo.service.QuizService;
 
@@ -27,5 +29,10 @@ public class QuizsController {
 	@GetMapping("/all")
 	public ResponseEntity<List<Quizs>> getAllQuiz() {
 	    return ResponseEntity.ok(service.getAllQuiz());
+	}
+	@GetMapping("/{id}")
+	public ResponseEntity<List<Questions>> getByAllQuizId(@PathVariable Long id )
+	{
+		return ResponseEntity.ok(service.getAllQuizById(id));
 	}
 }
