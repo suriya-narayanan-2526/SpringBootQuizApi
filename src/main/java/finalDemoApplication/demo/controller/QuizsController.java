@@ -1,8 +1,10 @@
 package finalDemoApplication.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,9 @@ public class QuizsController {
 	public ResponseEntity<QuizsResponseDto> createQuiz (@RequestBody Quizs quiz)
 	{
 		return ResponseEntity.ok().body(service.createQuiz(quiz));
+	}
+	@GetMapping("/all")
+	public ResponseEntity<List<Quizs>> getAllQuiz() {
+	    return ResponseEntity.ok(service.getAllQuiz());
 	}
 }
