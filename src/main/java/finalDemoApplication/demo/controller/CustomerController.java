@@ -40,7 +40,7 @@ public class CustomerController {
 		Authentication auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(cus.getName(),cus.getPassword()));
 		UserDetails user = (UserDetails)auth.getPrincipal();
 		String Token = jwt.generateToken(user);
-		return ResponseEntity.ok().body(Map.of("Token",Token));
+		return ResponseEntity.ok().body(Map.of("Token :",Token));
 		}
 		catch(Exception e){
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("Error","Invalid UserName and Password"));
