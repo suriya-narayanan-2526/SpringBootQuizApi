@@ -35,6 +35,6 @@ public class QuizService {
 	}
 	public List<Questions> getAllQuizById(Long id)
 	{
-		return quesRepo.findByQuizId(id);
+		return quesRepo.findByQuizs_Id(id);
 	}
 }
